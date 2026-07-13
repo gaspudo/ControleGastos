@@ -12,7 +12,7 @@ namespace ControleGastos.Api.Application.DTOs
         [StringLength(200, MinimumLength = 3, ErrorMessage = "A descrição deve ter entre {2} e {1} caracteres.")]
         string Descricao,
         
-        [Range(typeof(decimal), "0,01", "79228162514264337593543950335", ErrorMessage = "O valor da transação deve ser maior que zero.")]
+        [Range(0.01, 999999999.99, ErrorMessage = "O valor da transação deve ser maior que zero.")]
         [Required(ErrorMessage = "O valor é obrigatório.")]
         decimal Valor,
 
