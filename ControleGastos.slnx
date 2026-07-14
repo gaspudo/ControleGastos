@@ -2,4 +2,5 @@
   <Project Path="ControleGastos.Api/ControleGastos.Api.csproj" />
   <Project Path="ControleGastos.Domain/ControleGastos.Domain.csproj" />
   <Project Path="ControleGastos.Infrastructure/ControleGastos.Infrastructure.csproj" />
+  <Project Path="ControleGastos.Tests/ControleGastos.Tests.csproj" />
 </Solution>
