@@ -11,7 +11,7 @@ function ListaTransacoes({ transacoes }: ListaTransacoesProps) {
                 <li key={t.id}
                 className={`lista-transacoes-item ${t.tipo === "Receita" ? "receita" : "despesa"}`}
 >
-                    {t.descricao} — {t.tipo} — R$ {t.valor.toFixed(2)} (Pessoa {t.pessoaId})
+                    {t.descricao} — {t.tipo} — R$ {t.valor.toFixed(2)} - (ID da pessoa:  {t.pessoaId})
                 </li>
             ))}
         </ul>
