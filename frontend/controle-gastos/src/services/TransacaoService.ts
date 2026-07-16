@@ -5,9 +5,8 @@ const API_URL_TRANSACOES = `${import.meta.env.VITE_API_URL}/transacoes`;
 const buscarTransacoes = async (): Promise<Transacao[]> => {
     const resposta = await fetch(API_URL_TRANSACOES);
     if (!resposta.ok) {
-        throw new Error(
-            `Erro ao buscar transações. \nErro (${resposta.status}): (${resposta.statusText})`,
-        );
+        const corpoErro = await resposta.json();
+        throw new Error(corpoErro.message ?? "Erro ao buscar transações.");
     }
     return resposta.json();
 };
@@ -22,9 +21,8 @@ const criarTransacao = async (
     });
 
     if (!resposta.ok) {
-        throw new Error(
-            `Erro ao criar transação. \nErro (${resposta.status}): (${resposta.statusText})`,
-        );
+        const corpoErro = await resposta.json();
+        throw new Error(corpoErro.message ?? "Erro ao criar transação.");
     }
 
     return resposta.json();
