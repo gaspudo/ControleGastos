@@ -1,4 +1,6 @@
 import type { Pessoa } from "../types/Pessoa";
+import Lixo from "../assets/lixo.svg";
+import "./ListaPessoas.css";
 
 interface ListaPessoasProps {
     pessoas: Pessoa[];
@@ -9,13 +11,13 @@ const ListaPessoas = ({ pessoas, aoDeletar }: ListaPessoasProps) => {
 
 
     return (
-        <ul>
+        <ul className="lista-pessoas">
             {pessoas.map((pessoa) => (
-                <li key={String(pessoa.id)}> {pessoa.nome} - {pessoa.idade} anos - {pessoa.id}   
-                    <button onClick={() => {
+                <li className='lista-pessoas-item' key={String(pessoa.id)}> {pessoa.nome} - {pessoa.idade} anos - ID {pessoa.id}   
+                    <button className="lista-pessoas-botao-deletar" onClick={() => {
                             if (window.confirm(`Tem certeza que deseja excluir ${pessoa.nome}?`)) {
                                 aoDeletar(pessoa.id);
-                            }}}> Excluir </button>
+                            }}}> <img src={Lixo} /> </button>
                 </li>
             ))}
         </ul>
