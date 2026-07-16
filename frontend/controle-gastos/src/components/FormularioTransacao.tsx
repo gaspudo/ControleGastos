@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { TransacaoRequest } from "../types/Transacao";
 import type { Pessoa } from "../types/Pessoa";
 import { criarTransacao } from "../services/TransacaoService";
+import './FormularioTransacao.css';
 
 interface FormularioTransacaoProps {
     pessoas: Pessoa[];
@@ -15,7 +16,7 @@ function FormularioTransacao({ pessoas, aoCriar }: FormularioTransacaoProps) {
     const [tipo, setTipo] = useState("Despesa");
     const [erro, setErro] = useState<string | null>(null);
 
-    const handleSubmit = async (evento: React.FormEvent) => {
+    const handleSubmit = async (evento: React.SubmitEvent) => {
         evento.preventDefault();
         setErro(null);
 
@@ -36,40 +37,42 @@ function FormularioTransacao({ pessoas, aoCriar }: FormularioTransacaoProps) {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            {erro && <p style={{color: "red"}}>{erro}</p>}
-            <select value={pessoaId} onChange={(e) => setPessoaId(Number(e.target.value))}>
-                <option value={0}>Selecione uma pessoa</option>
-                {pessoas.map((pessoa) => (
-                    <option key={pessoa.id} value={pessoa.id}>
-                        {pessoa.nome}
-                    </option>
-                ))}
-            </select>
+        <div className="formulario-transacao-wrapper">
+            {erro && <p className="formulario-transacao-erro">{erro}</p>}
+            <form className="formulario-transacao" onSubmit={handleSubmit}>
+                <select value={pessoaId} onChange={(e) => setPessoaId(Number(e.target.value))}>
+                    <option value={0}>Selecione uma pessoa</option>
+                    {pessoas.map((pessoa) => (
+                        <option key={pessoa.id} value={pessoa.id}>
+                            {pessoa.nome}
+                        </option>
+                    ))}
+                </select>
 
-            <input
-                type="text"
-                value={descricao}
-                onChange={(e) => setDescricao(e.target.value)}
-                placeholder="Descrição"
-            />
+                <input
+                    type="text"
+                    value={descricao}
+                    onChange={(e) => setDescricao(e.target.value)}
+                    placeholder="Descrição"
+                />
 
-            <input
-                type="number"
-                step="0.01"
-                value={valor}
-                onChange={(e) => setValor(e.target.value)}
-                placeholder="Valor"
-            />
+                <input
+                    type="number"
+                    step="0.01"
+                    value={valor}
+                    onChange={(e) => setValor(e.target.value)}
+                    placeholder="Valor"
+                />
 
-            <select value={tipo} onChange={(e) => setTipo(e.target.value)}>
-                <option value="Despesa">Despesa</option>
-                <option value="Receita">Receita</option>
-            </select>
+                <select value={tipo} onChange={(e) => setTipo(e.target.value)}>
+                    <option value="Despesa">Despesa</option>
+                    <option value="Receita">Receita</option>
+                </select>
 
-            <button type="submit">Criar Transação</button>
-        </form>
-    );
+                <button type="submit">Criar Transação</button>
+            </form>
+        </div>
+            );
 }
 
-export { FormularioTransacao };
+            export {FormularioTransacao};

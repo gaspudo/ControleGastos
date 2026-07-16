@@ -1,0 +1,29 @@
+.lista-transacoes {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.lista-transacoes-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+    padding-right: 16px;
+}
+
+.lista-transacoes-item:not(:last-child) {
+    border-bottom: 1px solid #333;
+}
+
+.lista-transacoes-item.receita {
+    border-right: 5px solid #4caf7d;
+}
+
+.lista-transacoes-item.despesa {
+    border-right: 5px solid #e05555;
+}

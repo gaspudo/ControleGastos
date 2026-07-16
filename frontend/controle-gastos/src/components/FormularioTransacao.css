@@ -1,0 +1,39 @@
+.formulario-transacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.formulario-transacao input,
+.formulario-transacao select {
+    padding: 8px 12px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #1e1e1e;
+    color: #eee;
+    font-size: 14px;
+}
+
+.formulario-transacao button {
+    padding: 8px 16px;
+    background-color: #2d6cdf;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.formulario-transacao button:hover {
+    background-color: #1e5bc4;
+}
+
+.formulario-transacao-erro {
+    color: #ff6b6b;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
